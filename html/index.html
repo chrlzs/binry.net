@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BINRY.NET</title>
+  <style>
+    /* Commodore 64 inspired color palette */
+    :root {
+      --c64-blue: #4040e0;
+      --c64-lightblue: #7070ff;
+      --c64-bg: #3030a0;
+      --c64-white: #aaaaff;
+      --c64-cyan: #60dcdc;
+      --c64-purple: #8040c0;
+      --c64-green: #40b040;
+      --c64-black: #000000;
+    }
+    
+    @font-face {
+      font-family: 'PetMe64';
+      src: url('https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js');
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      background-color: var(--c64-blue);
+      color: var(--c64-cyan);
+      font-family: monospace;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      padding: 2rem;
+      line-height: 1.5;
+      text-transform: uppercase;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      flex: 1;
+    }
+    
+    header {
+      border-bottom: 4px solid var(--c64-cyan);
+      padding-bottom: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .title {
+      font-size: 2.5rem;
+      color: var(--c64-white);
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    
+    .subtitle {
+      font-size: 1rem;
+      text-align: center;
+      color: var(--c64-lightblue);
+      margin-bottom: 2rem;
+    }
+    
+    .command-prompt {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .prompt-line {
+      display: flex;
+      margin-bottom: 0.5rem;
+    }
+    
+    .prompt {
+      color: var(--c64-white);
+      margin-right: 0.5rem;
+    }
+    
+    .cursor {
+      display: inline-block;
+      width: 0.8rem;
+      height: 1rem;
+      background-color: var(--c64-cyan);
+      animation: blink 1s steps(1) infinite;
+    }
+    
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
+    }
+    
+    .content {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .menu {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    
+    .menu-item {
+      display: flex;
+      align-items: center;
+      color: var(--c64-white);
+    }
+    
+    .menu-item:before {
+      content: ">";
+      color: var(--c64-green);
+      margin-right: 0.5rem;
+    }
+    
+    .loading-bar {
+      margin-top: 2rem;
+      height: 1rem;
+      background-color: var(--c64-bg);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .loading-progress {
+      height: 100%;
+      width: 30%;
+      background-color: var(--c64-cyan);
+      animation: loading 3s infinite;
+    }
+    
+    @keyframes loading {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(350%); }
+    }
+    
+    footer {
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--c64-lightblue);
+      border-top: 4px solid var(--c64-cyan);
+      padding-top: 1rem;
+    }
+    
+    /* ASCII art styling */
+    .ascii-art {
+      color: var(--c64-white);
+      font-size: 0.8rem;
+      line-height: 1.2;
+      text-align: center;
+      margin: 2rem 0;
+      white-space: pre;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1 class="title">BINRY.NET</h1>
+      <p class="subtitle">**** COMMODORE 64 BASIC V2 ****</p>
+      <p class="subtitle">64K RAM SYSTEM 38911 BASIC BYTES FREE</p>
+    </header>
+    
+    <div class="command-prompt">
+      <div class="prompt-line">
+        <span class="prompt">READY.</span>
+      </div>
+      <div class="prompt-line">
+        <span class="prompt">LOAD"BINRY.NET",8,1</span>
+      </div>
+      <div class="prompt-line">
+        <span class="prompt">SEARCHING FOR BINRY.NET</span>
+      </div>
+      <div class="prompt-line">
+        <span class="prompt">LOADING</span>
+      </div>
+      <div class="loading-bar">
+        <div class="loading-progress"></div>
+      </div>
+      <div class="prompt-line">
+        <span class="prompt">READY.</span>
+      </div>
+      <div class="prompt-line">
+        <span class="prompt">RUN</span>
+      </div>
+    </div>
+    
+    <div class="ascii-art">
+          ____ ___ _   _ ______   ___   _ _____ _____
+          | __ )_ _| \ | |  _ \ \ / / \ | | ____|_   _|
+        |  _ \| ||  \| | |_) \ V /|  \| |  _|   | |
+        | |_) | || |\  |  _ < | |_| |\  | |___  | |
+        |____/___|_| \_|_| \_\|_(_)_| \_|_____| |_|
+    </div>
+    
+    <div class="content">
+      <p>WELCOME TO BINRY.NET</p>
+    </div>
+      
+    <div class="prompt-line">
+      <span class="prompt">_</span>
+      <span class="cursor"></span>
+    </div>
+  </div>
+  
+  <footer>
+    <p>© 2025 BINRY.NET - ALL RIGHTS RESERVED</p>
+    <p>PRESS ANY KEY TO CONTINUE...</p>
+  </footer>
+</body>
+</html>
