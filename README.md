@@ -1,5 +1,5 @@
 # binry.net
-root placeholder
+root domain placeholder
 
 
 python3 -m http.server
